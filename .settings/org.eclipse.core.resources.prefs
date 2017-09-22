@@ -1,5 +1,7 @@
 eclipse.preferences.version=1
 encoding//src/iptest/admin.py=utf-8
+encoding//src/iptest/ansible_api.py=utf-8
+encoding//src/iptest/ansible_interface.py=utf-8
 encoding//src/iptest/apps.py=utf-8
 encoding//src/iptest/models.py=utf-8
 encoding//src/iptest/tests.py=utf-8
