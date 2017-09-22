@@ -5,7 +5,8 @@ from django.shortcuts import render_to_response
 from ansible_interface import AnsiInterface
 import socket
 import iptest.models
-
+from django.http import HttpResponse
+import json as simplejson
 
 def index(request):
     return render(request, 'input.html')
@@ -20,7 +21,7 @@ def socketport(ip,port):
         return e.message
     
 def WinorLinux(request):
-    
+
     ip = request.GET['ip']
     str1=""
     str1 = str(socketport(str(ip),3389))
@@ -29,9 +30,12 @@ def WinorLinux(request):
     elif str1 != 'None':
         str1 = str(socketport(str(ip),22))
         if str1 == 'None': 
-            data = 'this is Linux' 
+            resource = [{"hostname": str(ip), "port": "22", "username": "root", "password": "newegg@123", "ip": '10.16.50.181'}]
+            interface = AnsiInterface(resource)
+            data = interface.Get_face(['10.16.50.181'])
 
-    return render_to_response('input.html',{'data':data})
+    # return render_to_response('input.html',{'data':data})
+    return HttpResponse(simplejson.dumps(data, ensure_ascii=False))
 
 
 

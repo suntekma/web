@@ -1,16 +1,61 @@
 <!DOCTYPE html>
+
 <html>
 <body>
+ <FORM NAME="my_form" action="/WinorLinux/" METHOD=POST>
+   <SCRIPT LANGUAGE="JavaScript">
+ <!--
+       divClick = function (){
+         
+	   if(my_form.update_radio.checked)
+		       document.getElementById("updata1_div").style.display="block";
+               document.getElementById("new_div").style.display="none";
+               
+              
+       if(my_form.new_radio.checked)
+               document.getElementById("new_div").style.display="block";
+               document.getElementById("updata1_div").style.display="none";
+               
+                                                              
+       }
+ //-->
+ </SCRIPT>
+ <div>
+    <INPUT id="update_radio" TYPE="radio"  NAME="radiotype"  onClick="divClick()" />update
+    <INPUT id="new_radio" TYPE="radio"  NAME="radiotype"  onClick="divClick()" />new
+ </div>
+  
+
 <p>Please input IP Address</p>
  
  
-<form action="/WinorLinux/" method="get">
+ <div id="updata1_div">
+    
+       hostname: &nbsp;<input type="text" name="ip"> <br>
+       <br>
+       Owner: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="owner"> <br>
+       <br>
+       Owner: <input type="text" name="owner"> <br>
+       <br>
+       Owner: <input type="text" name="owner"> <br>
+       <br>
+       Owner: <input type="text" name="owner"> <br>
+       <br>
+       <input type="submit" value="submit">
 
-    IP: <input type="text" name="ip"> <br>
-     <br>
-     <br>
-    <input type="submit" value="submit">
-</form>
+  </div> 
+ 
+  <div id="new_div" style="display:none">
+       hostname: &nbsp;<input type="text" name="ip"> <br>
+       <br>
+       Owner:    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="owner"> <br>
+       <br>
+       <input type="submit" value="submit">
+    
+  </div>
+
+
+
     
     {% block content %}  
     <h5>{{str1}}</h5>
